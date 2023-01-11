@@ -19,5 +19,4 @@ jobs:
         git config --global user.name 'Sourabh Upadhye'
         git config --global user.email 'sourabh.1998upadhye@gmail.com'
         git remote add orgin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git remote set-url orgin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         npm run deploy
