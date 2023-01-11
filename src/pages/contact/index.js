@@ -69,7 +69,7 @@ export const ContactUs = () => {
       <Container>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{meta.title} | Contact</title>
+          <title>{meta.title} | Reach out</title>
           <meta name="description" content={meta.description} />
         </Helmet>
         <Row className="mb-5 mt-3">

@@ -1,0 +1,22 @@
+name: Build and Deploy Website
+on: 
+  push:
+    branches: [main]
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: yarn install
+    
+    - name: Deploy
+      run: |
+        git config --global user.name 'Sourabh Upadhye'
+        git config --global user.email 'sourabh.1998upadhye@gmail.com'
+        git remote set-url orgin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        npm run deploy
