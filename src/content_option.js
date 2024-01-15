@@ -1,17 +1,17 @@
 const logotext = "Lab🧅";
 const meta = {
     title: "Labonion",
-    description: "Blockchain ETL Tool",
+    description: "Solving simple problems",
 };
 
 const introdata = {
-    title: "Blockchain ETL Tool",
+    title: "Markie",
     animated: {
         first: "Smart",
         second: "Secure",
         third: "Surprisingly fast",
     },
-    // description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
+    description: "Markie is your everyday chat bot that can work as your ETL tool and retrive data through integrations using prompts",
     // your_img_url: "https://user-images.githubusercontent.com/76874403/211607316-0735af96-a611-40f3-a410-786357cbf576.png",
 };
 
@@ -136,10 +136,21 @@ const dataportfolio = [{
 ];
 
 const contactConfig = {
-    YOUR_EMAIL: "sourabhupaadhye@gmail.com",
+    YOUR_EMAIL: "sourabh.1998upadhye@gmail.com",
     YOUR_FONE: "+91 8792223172",
     description: "India",
-    // creat an emailjs.com account 
+    // creat an emailjs.com account
+    // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
+    YOUR_SERVICE_ID: "service_id",
+    YOUR_TEMPLATE_ID: "template_id",
+    YOUR_USER_ID: "user_id",
+};
+
+const contactConfig2 = {
+    YOUR_EMAIL: "sourabh.1998upadhye@gmail.com",
+    YOUR_FONE: "+91 8792223172",
+    description: "India",
+    // creat an emailjs.com account
     // check out this tutorial https://www.emailjs.com/docs/examples/reactjs/
     YOUR_SERVICE_ID: "service_id",
     YOUR_TEMPLATE_ID: "template_id",
