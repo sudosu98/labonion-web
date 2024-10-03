@@ -31,19 +31,13 @@ jobs:
 
       - name: Build with Next.js 🏗️
         run: npx next build
-      - name: List Build Directory 📂
-        run: |
-          echo "Listing project directory after build:"
-          ls -al
-          echo "Listing the 'out' directory contents (if it exists):"
-          ls -al ./out || echo "No 'out' directory found!"
       - name: Create CNAME file
-        run: echo "labonion.com" > ./out/CNAME
+        run: echo "labonion.com" > ./.next/CNAME
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./.next
 
   deploy:
     environment:
