@@ -29,23 +29,33 @@ jobs:
         with:
           static_site_generator: next
 
-      - name: Build with Next.js 🏗️
-        run: npx next build && npx next export
+      - name: Build Next.js for Static Export 🏗️
+        run: npx next build
+
+      - name: List Build Directory 📂
+        run: |
+          echo "Listing project directory after build:"
+          ls -al
+          echo "Listing the 'out' directory contents (if it exists):"
+          ls -al ./out || echo "No 'out' directory found!"
+
+      - name: Create CNAME file
+        run: echo "labonion.com" > ./out/CNAME
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+deploy:
+  environment:
+    name: github-pages
+    url: ${{ steps.deployment.outputs.page_url }}
 
-    runs-on: ubuntu-latest
-    needs: build
+  runs-on: ubuntu-latest
+  needs: build
 
-    steps:
-      - name: Publish to GitHub Pages 🚀
-        id: deployment
-        uses: actions/deploy-pages@v4
+  steps:
+    - name: Publish to GitHub Pages 🚀
+      id: deployment
+      uses: actions/deploy-pages@v4
