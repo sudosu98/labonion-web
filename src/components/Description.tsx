@@ -10,7 +10,7 @@ export default function Description() {
         <p className="mx-auto mt-2 max-w-lg text-pretty text-center text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl">
           Select,Summarize and More
         </p>
-        <div className="mt-10 grid gap-4 sm:mt-16 lg:grid-cols-3 lg:grid-rows-2">
+        <div className="mt-10 grid gap-4 sm:mt-30 lg:grid-cols-3 lg:grid-rows-2">
           <div className="relative lg:row-span-2">
             <div className="absolute inset-px rounded-lg bg-white lg:rounded-l-[2rem]"></div>
             <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-l-[calc(2rem+1px)]">
@@ -23,7 +23,7 @@ export default function Description() {
                   talk to or if you don't find one you can always upload.`}
                 </p>
               </div>
-              <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+              <div className="relative max-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
                 <img
                   className="size-full object-cover object-top"
                   src="/Library.png"
@@ -71,9 +71,9 @@ export default function Description() {
                   Ask LabAi anything by selecting a text on a page.
                 </p>
               </div>
-              <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2">
+              <div className="flex flex-1 items-center [container-type:inline-size] max-lg:py-6 lg:pb-2 ">
                 <img
-                  className="object-cover object-center"
+                  className="object-cover object-right"
                   src="/LabAi.png"
                   alt=""
                 />
@@ -93,7 +93,7 @@ export default function Description() {
                   space. Mention to nudge them with a notification.
                 </p>
               </div>
-              <div className="relative max-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
+              <div className="relative min-h-[30rem] w-full grow [container-type:inline-size] max-lg:mx-auto max-lg:max-w-sm">
                 <img
                   className="size-full object-cover object-top"
                   src="/Discuss.png"
