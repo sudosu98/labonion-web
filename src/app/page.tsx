@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import Intro from "@/components/Intro";
 import Description from "@/components/Description";
-import Section from "@/components/Section";
 import Image from "next/image";
 export default function Home() {
   useEffect(() => {
@@ -18,10 +17,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main className="flex flex-col items-center justify-center">
       <Intro />
       <Description />
-      <Section />
       <footer className="row-start-3 w-full flex gap-6 flex-wrap items-center justify-center fixed z-10 bottom-10">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -66,6 +64,7 @@ export default function Home() {
           Team
         </a>
       </footer>
+      <p>© 2024 Labonion. All rights reserved.</p>
     </main>
   );
 }
