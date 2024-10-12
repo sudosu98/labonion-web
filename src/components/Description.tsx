@@ -3,7 +3,7 @@ import React from "react";
 export default function Description() {
   return (
     <div className="bg-gray-50 py-24 sm:py-32 w-full">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-7xl px-6  lg:px-8">
         <h2 className="text-center text-base/7 font-semibold text-indigo-600">
           An assitant when you work with documents
         </h2>
