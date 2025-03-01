@@ -1,20 +1,7 @@
-"use client";
-import { useEffect } from "react";
-import Lenis from "lenis";
 import Intro from "@/components/Intro";
 import Description from "@/components/Description";
-import Image from "next/image";
+import { DocumentTextIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/16/solid";
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
 
   return (
     <main className="flex flex-col items-center justify-center">
@@ -26,13 +13,7 @@ export default function Home() {
           href="/"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
+          <DocumentTextIcon height={16} width={16} />
           Blogs
         </a>
         <a
@@ -40,13 +21,7 @@ export default function Home() {
           href="/"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
+          <HomeIcon height={16} width={16}/>
           About
         </a>
         <a
@@ -54,17 +29,11 @@ export default function Home() {
           href="/"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
+          <UserGroupIcon height={16} width={16} />
           Team
         </a>
       </footer>
-      <p>© 2024 Labonion. All rights reserved.</p>
+      <p>© {new Date().getFullYear()} Labonion. All rights reserved.</p>
     </main>
   );
 }
