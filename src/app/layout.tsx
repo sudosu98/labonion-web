@@ -8,7 +8,19 @@ const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 export const metadata: Metadata = {
   title: "Labonion",
   description:
-    "Labonion is a teacher, a research assistant or a helper powered by AI.",
+    "Labonion is a marketing agent. Majorly meant for planning.",
+  openGraph: {
+    title: "Labonion",
+    description:
+    "Labonion is a marketing agent. Majorly meant for planning.",
+      images: [
+        {
+          url: `./Logo.png`,
+        },
+      ],  },
+  alternates: {
+    canonical: "https://www.labonion.com",
+  },
 };
 
 export default function RootLayout({
