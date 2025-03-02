@@ -28,7 +28,7 @@ jobs:
       - name: Configure Git user
         run: |
           git config user.name "sudosu98"
-          git config user.email "76874403+sudosu98@users.noreply.github.com"
+          git config user.email "sourabh.1998upadhye@gmail.com"
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.0
@@ -36,14 +36,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
           folder: out # The folder the action should deploy to.
-          commit-message: "Deploying to gh-pages from @${{ github.repository }}@${{ github.sha }} 🚀"
-
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "Deploying to gh-pages from @${{ github.repository }}@${{ github.sha }} 🚀"
-          branch: gh-pages
-          base: gh-pages
-          title: "Deploying to gh-pages"
-          body: "This is an automated pull request to deploy changes to the gh-pages branch."
