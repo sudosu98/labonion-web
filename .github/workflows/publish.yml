@@ -25,11 +25,6 @@ jobs:
       - name: Build my App
         run: pnpm run build && touch ./out/.nojekyll
 
-      - name: Configure Git user
-        run: |
-          git config user.name "sudosu98"
-          git config user.email "sourabh.1998upadhye@gmail.com"
-
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
