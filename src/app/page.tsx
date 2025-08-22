@@ -1,12 +1,12 @@
 import Intro from "@/components/Intro";
-import Description from "@/components/Description";
+// import Description from "@/components/Description";
 import { DocumentTextIcon, HomeIcon, UserGroupIcon } from "@heroicons/react/16/solid";
 export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center">
       <Intro />
-      <Description />
+      {/* <Description /> */}
       <footer className="row-start-3 w-full flex gap-6 flex-wrap items-center justify-center fixed z-10 bottom-10">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
