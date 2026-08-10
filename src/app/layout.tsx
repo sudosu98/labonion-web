@@ -6,11 +6,11 @@ import "./globals.css";
 const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
-  title: "Labonion",
-  description: "Labonion is a marketing agent. Majorly meant for planning.",
+  title: "Auto Anna",
+  description: "OTP Heli",
   openGraph: {
-    title: "Labonion",
-    description: "Labonion is a marketing agent. Majorly meant for planning.",
+    title: "Auto Anna",
+    description: "OTP Heli",
     images: [
       {
         url: `./Logo.png`,
