@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Kanit } from "next/font/google";
 
 import "./globals.css";
@@ -7,20 +7,25 @@ const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Labonion",
-  description:
-    "Labonion is a marketing agent. Majorly meant for planning.",
+  description: "Labonion is a marketing agent. Majorly meant for planning.",
   openGraph: {
     title: "Labonion",
-    description:
-    "Labonion is a marketing agent. Majorly meant for planning.",
-      images: [
-        {
-          url: `./Logo.png`,
-        },
-      ],  },
+    description: "Labonion is a marketing agent. Majorly meant for planning.",
+    images: [
+      {
+        url: `./Logo.png`,
+      },
+    ],
+  },
   alternates: {
     canonical: "https://www.labonion.com",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

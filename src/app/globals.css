@@ -3,36 +3,226 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f5f5f5;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  color: var(--foreground);
+  background: var(--background);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Auto cabin scene — mobile-first; desktop composition preserved below */
+.auto-cabin {
+  --cabin-inset: 4%;
+  --cabin-position: 50% 34%;
+  --driver-width: 100%;
+  --driver-height: 28vh;
+  --driver-bottom: 0;
+  --driver-scale: 1.2;
+  --driver-img-position: 54% 42%;
+  --driver-origin: 50% 70%;
+  --radio-width: min(42vw, 170px);
+  --radio-top: max(11%, calc(env(safe-area-inset-top, 0px) + 8%));
+  --radio-right: 12%;
+  --radio-scale: 1.65;
+}
+
+.auto-cabin__bg {
+  inset: calc(-1 * var(--cabin-inset));
+}
+
+.auto-cabin__bg img {
+  object-position: var(--cabin-position);
+}
+
+.auto-cabin__driver {
+  bottom: var(--driver-bottom);
+  width: var(--driver-width);
+  height: var(--driver-height);
+  overflow: hidden;
+}
+
+.auto-cabin__driver-img {
+  object-position: var(--driver-img-position);
+  transform: scale(var(--driver-scale));
+  transform-origin: var(--driver-origin);
+}
+
+.auto-cabin__radio {
+  top: var(--radio-top);
+  right: var(--radio-right);
+  width: var(--radio-width);
+  aspect-ratio: 1;
+}
+
+.auto-cabin__radio-img {
+  transform: scale(var(--radio-scale));
+  transform-origin: 50% 0%;
+}
+
+.auto-cabin__radio:focus-visible {
+  outline: 2px solid rgba(255, 236, 180, 0.9);
+  outline-offset: 6px;
+}
+
+.auto-cabin__hint {
+  top: calc(var(--radio-top) + 6%);
+  right: calc(var(--radio-right) + var(--radio-width) * 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  max-width: min(42vw, 220px);
+  color: #ffe8b0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  animation: cabin-hint-float 2.4s ease-in-out infinite;
+}
+
+.auto-cabin__hint-text {
+  margin: 0;
+  font-size: clamp(0.95rem, 2.6vw, 1.4rem);
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-align: right;
+}
+
+.auto-cabin__hint-arrow {
+  width: clamp(4.25rem, 11vw, 6.75rem);
+  height: auto;
+  margin-right: -0.5rem;
+  margin-top: -0.15rem;
+  transform: rotate(12deg);
+}
+
+@keyframes cabin-hint-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
   }
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-  height: auto;
+@media (prefers-reduced-motion: reduce) {
+  .auto-cabin__hint {
+    animation: none;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Track color */
+/* Narrow phones */
+@media (max-width: 359px) {
+  .auto-cabin {
+    --cabin-position: 52% 32%;
+    --driver-height: 30vh;
+    --driver-scale: 1.15;
+    --driver-img-position: 54% 40%;
+    --radio-width: min(46vw, 150px);
+    --radio-top: max(10%, calc(env(safe-area-inset-top, 0px) + 7%));
+    --radio-right: 10%;
+    --radio-scale: 1.55;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #888; /* Thumb color */
-  border-radius: 12px;
+/* Large / tall phones (e.g. iPhone 14 Pro Max) */
+@media (min-width: 400px) and (max-width: 639px) {
+  .auto-cabin {
+    --cabin-position: 50% 32%;
+    --driver-height: 45vh;
+    --driver-bottom: -10%;
+    --driver-scale: 2.32;
+    --driver-img-position: 54% 51%;
+    --radio-width: min(38vw, 175px);
+    --radio-top: max(12%, calc(env(safe-area-inset-top, 0px) + 9%));
+    --radio-right: 14%;
+    --radio-scale: 2.9;
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Thumb color on hover */
+@media (min-width: 640px) {
+  .auto-cabin {
+    --cabin-inset: 3.5%;
+    --cabin-position: 52% 46%;
+    --driver-width: min(50vw, 380px);
+    --driver-height: min(50vw, 380px);
+    --driver-bottom: 4%;
+    --driver-scale: 2.25;
+    --driver-img-position: center bottom;
+    --driver-origin: 50% 90%;
+    --radio-width: min(30vw, 200px);
+    --radio-top: 16%;
+    --radio-right: 8%;
+    --radio-scale: 1.3;
+  }
+
+  .auto-cabin__driver {
+    overflow: visible;
+  }
+}
+
+@media (min-width: 768px) {
+  .auto-cabin {
+    --cabin-position: center;
+    --driver-width: min(44vw, 420px);
+    --driver-height: min(44vw, 420px);
+    --driver-bottom: 5%;
+    --driver-scale: 2.3;
+    --radio-width: min(26vw, 230px);
+    --radio-top: 18%;
+    --radio-right: 10%;
+    --radio-scale: 1.32;
+  }
+}
+
+/* Desktop — preserved composition */
+@media (min-width: 1024px) {
+  .auto-cabin {
+    --cabin-inset: 3%;
+    --cabin-position: center;
+    --driver-width: min(38vw, 460px);
+    --driver-height: min(38vw, 460px);
+    --driver-bottom: -42%;
+    --driver-scale: 2.55;
+    --driver-img-position: center bottom;
+    --driver-origin: 50% 90%;
+    --radio-width: min(22vw, 250px);
+    --radio-top: 10%;
+    --radio-right: 14%;
+    --radio-scale: 2.35;
+  }
+
+  .auto-cabin__hint {
+    top: calc(var(--radio-top) + 15%);
+    right: calc(var(--radio-right) + var(--radio-width) * 0.7);
+  }
+}
+
+/* Short landscape phones — keep overlays from covering the window view */
+@media (max-height: 480px) and (orientation: landscape) {
+  .auto-cabin {
+    --cabin-inset: 2%;
+    --cabin-position: 50% 48%;
+    --driver-width: min(50vh, 280px);
+    --driver-height: min(42vh, 200px);
+    --driver-bottom: 0;
+    --driver-scale: 1.25;
+    --driver-img-position: 55% 66%;
+    --driver-origin: 50% 80%;
+    --radio-width: min(26vh, 130px);
+    --radio-top: max(4%, env(safe-area-inset-top, 0px));
+    --radio-right: 6%;
+    --radio-scale: 1.2;
+  }
+
+  .auto-cabin__driver {
+    overflow: hidden;
+  }
 }
